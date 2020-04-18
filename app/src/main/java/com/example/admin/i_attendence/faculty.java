@@ -11,18 +11,25 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -90,12 +97,9 @@ public class faculty extends AppCompatActivity {
 
 
 
-
-
-
-
-
     }
+
+
 
     public void  star_server(View v) throws IOException {
 
@@ -197,6 +201,25 @@ public class faculty extends AppCompatActivity {
 
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_code__attendence, container, false);
+
+
+                    WebView web = (WebView)rootView.findViewById(R.id.webview2);
+
+
+                    web.getSettings().setDomStorageEnabled(true);
+                    WebSettings webSettings = web.getSettings();
+                    webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+                    webSettings.setJavaScriptEnabled(true);
+                    webSettings.setDomStorageEnabled(true);
+                    webSettings.setBuiltInZoomControls(true);
+                    webSettings.setDisplayZoomControls(false);
+
+                    webSettings.setJavaScriptEnabled(true);
+                    web.setWebChromeClient(new WebChromeClient());
+                    web.setWebViewClient(new WebViewClient());
+                    web.loadUrl("http://192.168.43.197/Attendence/faculty.php?facid="+details.enroll);
+
+
                     break;
 
             }
