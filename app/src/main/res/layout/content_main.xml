@@ -23,4 +23,12 @@
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="476dp" />
 
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="8dp" />
+
+
 </android.support.constraint.ConstraintLayout>

@@ -153,6 +153,13 @@ Log.e("target","*****************************");
             }
 
             details.enroll=data;
+            if(details.enroll.equals("null")){
+                f.delete();
+                Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(i);
+                finish();
+
+            }
             Intent i=new Intent(getApplicationContext(),MainActivity.class);
             startActivity(i);
             finish();
@@ -174,6 +181,14 @@ Log.e("target","*****************************");
 
 
             details.enroll=data;
+            if(details.enroll.equals("null")){
+                f2.delete();
+                Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(i);
+                finish();
+
+            }
+
             Intent i=new Intent(getApplicationContext(),faculty.class);
             startActivity(i);
             finish();

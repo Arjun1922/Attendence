@@ -24,6 +24,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -145,6 +149,22 @@ ttt=tt;
 
         tt=findViewById(R.id.textView3);
         final Handler handler;
+
+        WebView webView = (WebView)findViewById(R.id.webview);
+
+        webView.getSettings().setDomStorageEnabled(true);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
+webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("http://192.168.43.197/Attendence/index.php?enrollment="+details.enroll);
+
 
 
 
